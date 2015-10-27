@@ -3,11 +3,11 @@ var ScriptServer = require('scriptserver');
 var Path = require('path');
 var fs = require('fs');
 
-module.exports = function(self) {
+module.exports = function(server) {
 
-    self.JSONdir = Path.join(process.cwd(), 'JSON');
-    fs.stat(self.JSONdir, err => {
-        if (err) fs.mkdir(self.JSONdir);
+    server.JSONdir = Path.join(process.cwd(), 'JSON');
+    fs.stat(server.JSONdir, err => {
+        if (err) fs.mkdir(server.JSONdir);
     });
 };
 
