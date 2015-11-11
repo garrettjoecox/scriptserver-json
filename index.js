@@ -13,15 +13,14 @@ module.exports = function(server) {
 
 ScriptServer.prototype.getJSON = function(path, attribute) {
     var self = this;
-    
+
     return getJSONFile(Path.join(self.JSONdir, path + '.json'))
-        .then(d => d[attribute]);
+        .then(d => attribute ? d[attribute] : d);
 };
 
 ScriptServer.prototype.setJSON = function(path, attribute, newValue) {
     var self = this;
-    
-    
+
     return getJSONFile(Path.join(self.JSONdir, path + '.json'))
         .then(d => {
             d[attribute] = newValue;

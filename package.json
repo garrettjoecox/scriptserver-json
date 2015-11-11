@@ -1,6 +1,6 @@
 {
   "name": "scriptserver-json",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JSON module for scriptserver",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/garrettjoecox/scriptserver-json/issues"
   },
-  "homepage": "https://github.com/garrettjoecox/scriptserver-json#readme"
+  "homepage": "https://github.com/garrettjoecox/scriptserver-json#readme",
+  "dependencies": {
+    "scriptserver": "*"
+  }
 }
