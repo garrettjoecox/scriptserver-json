@@ -13,6 +13,7 @@ module.exports = function(server) {
 
 ScriptServer.prototype.getJSON = function(path, attribute) {
     var self = this;
+    path = path.toLowerCase();
 
     return getJSONFile(Path.join(self.JSONdir, path + '.json'))
         .then(d => attribute ? d[attribute] : d);
@@ -20,6 +21,7 @@ ScriptServer.prototype.getJSON = function(path, attribute) {
 
 ScriptServer.prototype.setJSON = function(path, attribute, newValue) {
     var self = this;
+    path = path.toLowerCase();
 
     return getJSONFile(Path.join(self.JSONdir, path + '.json'))
         .then(d => {
