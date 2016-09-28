@@ -12,13 +12,13 @@ npm install scriptserver-json
 ```
 And in your `server` file:
 ```javascript
-server.use('scriptserver-json');
+server.use(require('scriptserver-json'));
 ```
 
 ## Usage
-This module provides the following interface which allows for reading and writing of files in the JSON directory of your server.
+This module provides the following interface which allows for reading and writing of files in the `JSON` directory of your server. The directory in which these are stored will soon be configurable but for now are in the `JSON` directory
 
-#### server.getJSON(path, attribute)
+#### server.JSON.get(path, attribute)
 - Path - [required] Relative to JSON folder, can be nested folders or a direct name. (see example)
 - Attribute - [optional] if given, will only return this attribute from the requested file, if not will return entire file
 
@@ -32,7 +32,7 @@ server.getJSON('world', 'spawn')
   .then(spawn => console.log(spawn));
 ```
 
-#### server.setJSON(path, attribute, newValue)
+#### server.JSON.set(path, attribute, newValue)
 - Path - [required] Relative to JSON folder, can be nested folders or a direct name.
 - Attribute - [required] Name of attribute to set
 - NewValue - [required] value of attribute to set

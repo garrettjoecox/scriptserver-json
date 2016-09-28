@@ -1,49 +1,59 @@
+'use strict';
 
-var ScriptServer = require('scriptserver');
-var Path = require('path');
-var fs = require('fs');
+const fs = require('fs');
+const join = require('path').join;
 
-module.exports = function(server) {
+module.exports = function() {
 
-    server.JSONdir = Path.join(process.cwd(), 'JSON');
-    fs.stat(server.JSONdir, err => {
-        if (err) fs.mkdir(server.JSONdir);
-    });
-};
+  // Setup
 
-ScriptServer.prototype.getJSON = function(path, attribute) {
-    var self = this;
-    path = path.toLowerCase();
+  const server = this;
+  const dir = join(process.cwd(), 'JSON');
 
-    return getJSONFile(Path.join(self.JSONdir, path + '.json'))
-        .then(d => attribute ? d[attribute] : d);
-};
+  fs.stat(dir, err => {
+    if (err) fs.mkdir(dir);
+  });
 
-ScriptServer.prototype.setJSON = function(path, attribute, newValue) {
-    var self = this;
-    path = path.toLowerCase();
+  // Retrieve & Setting
 
-    return getJSONFile(Path.join(self.JSONdir, path + '.json'))
-        .then(d => {
-            d[attribute] = newValue;
-            return writeJSONFile(Path.join(self.JSONdir, path + '.json'), d);
+  server.JSON = {
+
+    get(path, attr) {
+      path = join(dir, path.toLowerCase() + '.json');
+
+      return readJson(path)
+        .then(data => attr ? data[attr] : data);
+    },
+
+    set(path, attr, value) {
+      path = join(dir, path.toLowerCase() + '.json');
+
+      return readJson(path)
+        .then(data => {
+          data[attr] = value;
+          return writeJson(path, data);
         });
-};
+    }
 
-function getJSONFile(path) {
-    return new Promise((resolve, reject) => {
-        fs.readFile(path, (err, data) => {
-            if (err) resolve({});
-            else resolve(JSON.parse(data));
-        });
-    });
+  }
 }
 
-function writeJSONFile(path, data) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(path, JSON.stringify(data, null, 4), err => {
-            if (err) reject(err);
-            else resolve(data);
-        });
+// Helper Functions
+
+function readJson(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, (err, data) => {
+      if (err) resolve({});
+      else resolve(JSON.parse(data));
     });
+  });
+}
+
+function writeJson(path, data) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path, JSON.stringify(data, null, 4), err => {
+      if (err) reject(err);
+      else resolve(data);
+    });
+  });
 }
