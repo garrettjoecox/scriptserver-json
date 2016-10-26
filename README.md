@@ -24,11 +24,11 @@ This module provides the following interface which allows for reading and writin
 
 ```javascript
 // Path argument can be nested folders
-server.getJSON('players/proxysaw', 'home')
+server.JSON.get('players/proxysaw', 'home')
   .then(home => console.log(home));
 
 // Or directly in the main folder
-server.getJSON('world', 'spawn')
+server.JSON.get('world', 'spawn')
   .then(spawn => console.log(spawn));
 ```
 
@@ -44,5 +44,5 @@ var newHome = {
   z: 0
 };
 
-server.setJSON('players/proxysaw', 'home', newHome);
+server.JSON.set('players/proxysaw', 'home', newHome);
 ```
