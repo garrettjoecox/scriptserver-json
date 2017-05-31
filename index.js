@@ -8,7 +8,7 @@ module.exports = function() {
   // Setup
 
   const server = this;
-  const dir = join(process.cwd(), 'JSON');
+  const dir = this.config.jsonDir || join(process.cwd(), 'JSON');
 
   fs.stat(dir, err => {
     if (err) fs.mkdir(dir);
