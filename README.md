@@ -15,6 +15,16 @@ And in your `server` file:
 server.use(require('scriptserver-json'));
 ```
 
+## Configuration
+The path where to read and store JSON files is interchangeable. It defaults to the current path of the node process + '/JSON'
+
+Configure the JSON directory like so:
+```
+const server = new ScriptServer({
+  jsonDir: '/path/to/json/directory'
+});
+```
+
 ## Usage
 This module provides the following interface which allows for reading and writing of files in the `JSON` directory of your server. The directory in which these are stored will soon be configurable but for now are in the `JSON` directory
 
