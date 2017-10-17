@@ -1,18 +1,27 @@
 {
   "name": "scriptserver-json",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "JSON module for scriptserver",
   "main": "index.js",
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/garrettjoecox/scriptserver-json.git"
   },
   "author": "Garrett Cox <garrettjcox@gmail.com> (http://garrettcox.io)",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/garrettjoecox/scriptserver-json/issues"
   },
   "homepage": "https://github.com/garrettjoecox/scriptserver-json#readme",
-  "dependencies": {}
+  "dependencies": {
+    "lodash.defaultsdeep": "^4.6.0"
+  },
+  "peerDependencies": {
+    "scriptserver": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
 }
