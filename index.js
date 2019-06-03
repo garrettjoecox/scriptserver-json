@@ -10,7 +10,7 @@ module.exports = function () {
   });
 
   fs.stat(config.dir, (err) => {
-    if (err) fs.mkdir(config.dir);
+    if (err) fs.mkdir(config.dir,err=>{if(err)console.log(err);});
   });
 
   server.JSON = {
