@@ -1,6 +1,6 @@
 {
   "name": "scriptserver-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON module for scriptserver",
   "main": "index.js",
   "repository": {
@@ -14,10 +14,10 @@
   },
   "homepage": "https://github.com/garrettjoecox/scriptserver-json#readme",
   "dependencies": {
-    "lodash.defaultsdeep": "^4.6.0"
+    "lodash.defaultsdeep": "^4.6.1"
   },
   "peerDependencies": {
-    "scriptserver": "^1.0.0"
+    "scriptserver": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^4.9.0",

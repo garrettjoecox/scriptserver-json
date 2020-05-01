@@ -10,7 +10,11 @@ module.exports = function () {
   });
 
   fs.stat(config.dir, (err) => {
-    if (err) fs.mkdir(config.dir);
+    if (err) {
+      fs.mkdir(config.dir, (err2) => {
+        if (err2) console.error(err2);
+      });
+    }
   });
 
   server.JSON = {
