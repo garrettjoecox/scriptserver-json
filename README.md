@@ -1,4 +1,4 @@
-scriptserver-json
+Deprecated - Moved to @scriptserver/json
 ====================
 
 [![](http://i.imgur.com/zhptNme.png)](https://github.com/garrettjoecox/scriptserver)

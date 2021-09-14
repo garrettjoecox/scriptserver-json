@@ -1,7 +1,7 @@
 {
   "name": "scriptserver-json",
-  "version": "1.0.1",
-  "description": "JSON module for scriptserver",
+  "version": "1.0.2",
+  "description": "Deprecated - Moved to @scriptserver/json",
   "main": "index.js",
   "repository": {
     "type": "git",
